@@ -1,0 +1,624 @@
+{
+ "url": "http://localhost:5174/",
+ "at": "2026-11-07T14:43:16.000Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.76,
+    0.72
+   ],
+   "motion": {
+    "elements": 5,
+    "css": 4,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 1127,
+     "screens": 1.3,
+     "words": 114,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 0,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Astheria",
+     "words": 1,
+     "chars": 8,
+     "lines": 1,
+     "size": 22,
+     "vw": 1.5,
+     "font": "ui-serif",
+     "weight": 600,
+     "tracking": -0.05,
+     "leading": 1.15,
+     "top": 25,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Astheria",
+     "words": 1,
+     "lines": 1,
+     "size": 21.6,
+     "font": "ui-serif"
+    },
+    "headings": [
+     {
+      "text": "Build confidence with short recall loops.",
+      "words": 6,
+      "chars": 41,
+      "lines": 2,
+      "size": 34.6,
+      "vw": 2.4,
+      "font": "ui-serif",
+      "weight": 600,
+      "tracking": -0.03,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 113,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "12d",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 30,
+      "vw": 2.1,
+      "font": "ui-monospace",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.08,
+      "top": 450,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "86%",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 30,
+      "vw": 2.1,
+      "font": "ui-monospace",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.08,
+      "top": 450,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "28m",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 30,
+      "vw": 2.1,
+      "font": "ui-monospace",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.08,
+      "top": 450,
+      "tag": "strong",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "system-ui",
+       "share": 0.81,
+       "mono": false
+      },
+      {
+       "family": "ui-serif",
+       "share": 0.18,
+       "mono": false
+      },
+      {
+       "family": "ui-monospace",
+       "share": 0.01,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      17,
+      18,
+      20,
+      22,
+      30,
+      35
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 34.6,
+      "vw": 2.4,
+      "font": "ui-serif",
+      "text": "Build confidence with short recall loops"
+     },
+     "monoShare": 0.01,
+     "monoProseShare": 0.01,
+     "monoFamilies": [
+      "ui-monospace"
+     ],
+     "monoSamples": [
+      "12d",
+      "86%",
+      "28m"
+     ],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.04,
+     "centerShare": 0.23,
+     "smallText": 4
+    },
+    "eyebrows": [
+     {
+      "text": "Streak",
+      "above": "12d",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 422
+     },
+     {
+      "text": "Accuracy",
+      "above": "86%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 422
+     },
+     {
+      "text": "Focus",
+      "above": "28m",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 422
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f4f3f1",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.12,
+      "l": 0.95
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f4f3f1",
+       "top": 0,
+       "hsl": {
+        "h": 40,
+        "s": 0.12,
+        "l": 0.95
+       }
+      },
+      {
+       "color": "#e9e7e2",
+       "top": 0,
+       "hsl": {
+        "h": 43,
+        "s": 0.14,
+        "l": 0.9
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 532,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#6b6b6b",
+       "share": 0.46
+      },
+      {
+       "color": "#0a0a0a",
+       "share": 0.32
+      },
+      {
+       "color": "#000000",
+       "share": 0.15
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.05
+      },
+      {
+       "color": "#2e7d32",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#0a0a0a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 12,
+     "inHero": 11,
+     "radius": 6,
+     "height": 39,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "System",
+      "Developer mode",
+      "Start a Session",
+      "Resume",
+      "Review"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 11,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.avatar-card → rgba(0, 0, 0, 0.06) 0px 4px 12px 0px",
+      "article.study-card.tone-primary → rgba(0, 0, 0, 0.04) 0px 1px 0px 0px",
+      "article.study-card.tone-neutral → rgba(0, 0, 0, 0.04) 0px 1px 0px 0px",
+      "article.study-card.tone-success → rgba(0, 0, 0, 0.04) 0px 1px 0px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 9,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 9,
+     "boxRadius": 8,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 92
+      },
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 582
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 76,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 1127,
+    "margins": {
+     "left": 27,
+     "right": 31
+    },
+    "sections": [
+     {
+      "sel": "div.avatar-canvas-container",
+      "tag": "div",
+      "top": 0,
+      "height": 1127,
+      "words": 4,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 638,
+      "right": 638,
+      "textLeft": 638,
+      "textRight": 638,
+      "fullBleed": true,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.experience-shell",
+      "tag": "div",
+      "top": 0,
+      "height": 1051,
+      "words": 102,
+      "media": 0,
+      "middle": 91,
+      "heading": {
+       "text": "Build confidence with short recall loops.",
+       "size": 35,
+       "tag": "h2"
+      },
+      "left": 27,
+      "right": 27,
+      "textLeft": 27,
+      "textRight": 39,
+      "fullBleed": false,
+      "footer": true,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Astheria",
+      "size": 22,
+      "top": 25,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 27,
+      "n": 3
+     },
+     {
+      "x": 44,
+      "n": 3
+     },
+     {
+      "x": 961,
+      "n": 3
+     },
+     {
+      "x": 85,
+      "n": 1
+     },
+     {
+      "x": 144,
+      "n": 1
+     },
+     {
+      "x": 243,
+      "n": 1
+     },
+     {
+      "x": 492,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 13,
+    "bodySize": 35,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": false,
+    "ground": "#f4f3f1",
+    "sidebar": null,
+    "topbar": null,
+    "canvas": {
+     "left": 27,
+     "right": 27
+    },
+    "hero": {
+     "text": "Astheria",
+     "words": 1,
+     "chars": 8,
+     "lines": 1,
+     "size": 22,
+     "vw": 1.5,
+     "font": "ui-serif",
+     "weight": 600,
+     "tracking": -0.05,
+     "leading": 1.15,
+     "top": 25,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 6,
+     "firstScreen": 6,
+     "ragged": [
+      {
+       "diff": 126,
+       "top": 92
+      }
+     ],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 12,
+     "radii": [
+      [
+       8,
+       12
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 7,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 2,
+     "tabularShare": 1,
+     "kpiMax": 30
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.17,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      17,
+      18,
+      20,
+      22,
+      30,
+      35
+     ]
+    },
+    "title": {
+     "text": "Astheria",
+     "size": 22,
+     "top": 25
+    },
+    "colourShare": 0.021
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "ragged-row",
+   "width": 1440,
+   "message": "1 pair(s) of cards in one row end at different heights (by 126px).",
+   "fix": "Cards that share a row share a bottom edge: balance them by their content (the same number of rows, a block of similar height beside it), or stack them. In testing, ragged rows were marked down every time."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\user\\OneDrive\\Documents\\Anime Tutor\\.taste-skill\\inspect2\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\user\\OneDrive\\Documents\\Anime Tutor\\.taste-skill\\inspect2\\desktop-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

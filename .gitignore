@@ -35,3 +35,4 @@ probe-*.json
 .env.*.*
 !.env.example
 public/avatar.vrm
+.vercel
