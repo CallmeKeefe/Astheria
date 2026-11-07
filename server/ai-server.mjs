@@ -3,6 +3,10 @@ import http from 'node:http';
 const PORT = Number(process.env.AI_SERVER_PORT || 3001);
 const MAX_INPUT_LENGTH = Number(process.env.AI_MAX_INPUT_LENGTH || 2000);
 const MAX_OUTPUT_LENGTH = Number(process.env.AI_MAX_OUTPUT_LENGTH || 1200);
+const OPENROUTER_MODEL = process.env.OPENROUTER_MODEL || 'openrouter/free';
+const OPENROUTER_SITE_URL = process.env.OPENROUTER_SITE_URL || 'http://localhost:5173';
+const OPENROUTER_APP_NAME = process.env.OPENROUTER_APP_NAME || 'Astheria AI Companion';
+const AI_PROVIDER_API_KEY = process.env.AI_PROVIDER_API_KEY || process.env.OPENROUTER_API_KEY;
 
 const validateRequest = (payload) => {
   if (!payload || typeof payload !== 'object') {
@@ -123,36 +127,105 @@ const handleOpenAIProvider = async (payload) => {
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model,
+      model: OPENROUTER_MODEL,
       messages,
       temperature: 0.7,
-      max_tokens: 500,
     }),
-  });
-
-  if (!response.ok) {
-    const body = await response.text();
-    throw new Error(body || 'AI provider request failed.');
+  // ok oxlint:disable — complex async provider function with multiple nested scopes
+const handleOpenRouterProvider = async (payload, abortController) => {
+  const apiKey = AI_PROVIDER_API_KEY;
+  if (!apiKey) {
+    throw new Error('OpenRouter API key not configured.');
   }
 
-  const result = await response.json();
-  const content = result?.choices?.[0]?.message?.content;
+  const systemPrompt = generateSystemPrompt(payload.mode || 'Companion');
+  const truncatedSystemPrompt = systemPrompt.length > MAX_SYSTEM_PROMPT_LENGTH
+    ? systemPrompt.slice(0, MAX_SYSTEM_PROMPT_LENGTH) + '...'
+    : systemPrompt;
 
-  if (typeof content !== 'string' || content.trim().length === 0) {
-    throw new Error('AI provider returned no usable content.');
+  const messages = [
+    { role: 'system', content: truncatedSystemPrompt },
+    ...payload.messages,
+  ];
+
+  for (const msg of messages) {
+    if (!msg || typeof msg !== 'object') {
+      throw new Error('Invalid message format.');
+    }
+    if (!ALLOWED_MESSAGE_ROLES.includes(msg.role)) {
+      throw new Error(`Invalid message role: ${msg.role}. Allowed roles: ${ALLOWED_MESSAGE_ROLES.join(', ')}`);
+    }
+    if (typeof msg.content !== 'string') {
+      throw new Error('Message content must be a string.');
+    }
+    msg.content = sanitizeText(msg.content, MAX_INPUT_LENGTH);
   }
 
-  const intent = payload.interactionType || inferIntent(payload.userInput);
+  const totalLength = messages.reduce((sum, msg) => sum + msg.content.length, 0);
+  if (totalLength > MAX_TOTAL_MESSAGE_LENGTH) {
+    throw new Error(`Total message length (${totalLength}) exceeds maximum (${MAX_TOTAL_MESSAGE_LENGTH}).`);
+  }
 
-  return {
-    text: sanitizeText(content, MAX_OUTPUT_LENGTH),
-    language: payload.language || 'en-US',
-    educationalIntent: intent,
-    suggestedAvatarState: chooseAvatarState(intent, payload.mode || 'Companion'),
-    suggestedAction: 'Continue with a follow-up prompt',
-    provider: 'openai',
-    mock: false,
-  };
+  try {
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+        'HTTP-Referer': OPENROUTER_SITE_URL,
+        'X-Title': OPENROUTER_APP_NAME,
+      },
+      body: JSON.stringify({
+        model: OPENROUTER_MODEL,
+        messages,
+        temperature: 0.7,
+      }),
+    });
+
+    if (response.status === 429) {
+      const errorText = await response.text();
+      throw new Error(`Rate limit exceeded: ${errorText.substring(0, 200)}`);
+    }
+
+    if (response.status >= 500) {
+      throw new Error('Provider temporarily unavailable. Please try again later.');
+    }
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`AI provider error: ${errorText.substring(0, 200)}`);
+    }
+
+    const result = await response.json();
+
+    if (!result || typeof result !== 'object') {
+      throw new Error('Invalid response from AI provider.');
+    }
+
+    const content = result.choices?.[0]?.message?.content;
+    if (typeof content !== 'string' || content.trim().length === 0) {
+      throw new Error('AI provider returned no usable content.');
+    }
+
+    const intent = payload.interactionType || inferIntent(payload.userInput);
+
+    return {
+      text: sanitizeText(content, MAX_OUTPUT_LENGTH),
+      language: result.language || payload.language || 'en-US',
+      educationalIntent: payload.interactionType ? payload.interactionType : inferIntent(payload.userInput),
+      suggestedAvatarState: chooseAvatarState(intent, payload.mode || 'Companion'),
+      suggestedAction: 'Continue with a follow-up prompt',
+      provider: 'openrouter',
+      mock: false,
+      model: OPENROUTER_MODEL,
+    };
+  } catch (error) {
+    if (error instanceof Error) {
+      throw error;
+    }
+    throw new Error('AI provider request failed.');
+  }
+};
 };
 
 const server = http.createServer(async (req, res) => {
@@ -186,12 +259,14 @@ const server = http.createServer(async (req, res) => {
         validateRequest(payload);
 
         let response;
-        if (process.env.AI_PROVIDER_API_KEY) {
+        if (AI_PROVIDER_API_KEY) {
           try {
-            response = await handleOpenAIProvider(payload);
+            response = await handleOpenRouterProvider(payload, abortController);
           } catch (error) {
-            console.warn('[ai-server] OpenAI provider failed, falling back to mock provider:', error instanceof Error ? error.message : error);
+            console.warn('[ai-server] OpenRouter provider failed, falling back to mock provider:', error instanceof Error ? error.message : error);
             response = buildMockResponse(payload);
+            response.provider = 'mock';
+            response.mock = true;
           }
         } else {
           response = buildMockResponse(payload);

@@ -30,3 +30,8 @@ probe-*.json
 *.njsproj
 *.sln
 *.sw?
+.env
+.env.local
+.env.*.*
+!.env.example
+public/avatar.vrm

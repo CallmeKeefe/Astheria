@@ -20,12 +20,12 @@ export const StudyCard: React.FC<BaseCardProps> = ({
   tone = 'neutral',
   disabled = false,
 }) => (
-  <article className={`study-card tone-${tone}`} aria-label={title}>
+  <article className={`study-card tone-${tone} study-card-enhanced`} aria-label={title}>
     {eyebrow ? <span className="study-card__eyebrow">{eyebrow}</span> : null}
     <h3>{title}</h3>
     {subtitle ? <p>{subtitle}</p> : null}
-    <button type="button" className="study-card__action" disabled={disabled}>
-      {actionLabel}
+    <button type="button" className="study-card__action enhanced-action" disabled={disabled}>
+      <span>{actionLabel}</span>
     </button>
   </article>
 );
@@ -37,12 +37,12 @@ export const PracticeCard: React.FC<BaseCardProps> = ({
   actionLabel = 'Practice',
   tone = 'primary',
 }) => (
-  <article className={`study-card tone-${tone} practice-card`} aria-label={title}>
+  <article className={`study-card tone-${tone} practice-card enhanced-card`} aria-label={title}>
     {eyebrow ? <span className="study-card__eyebrow">{eyebrow}</span> : null}
     <h3>{title}</h3>
     {subtitle ? <p>{subtitle}</p> : null}
-    <button type="button" className="study-card__action muted">
-      {actionLabel}
+    <button type="button" className="study-card__action muted enhanced-action">
+      <span>{actionLabel}</span>
     </button>
   </article>
 );

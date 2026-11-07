@@ -56,8 +56,15 @@ function App() {
     }
     return '/avatar.vrm';
   });
+  const initialScreen = (() => {
+    if (typeof window === 'undefined') return 'home';
+    const params = new URLSearchParams(window.location.search);
+    const s = params.get('screen');
+    if (s === 'home' || s === 'companions' || s === 'precall' || s === 'session' || s === 'summary') return s;
+    return 'home';
+  })();
   const [performance, setPerformance] = useState<ScenePerformanceSnapshot>(defaultPerformance);
-  const [screen, setScreen] = useState<AppScreen>('home');
+  const [screen, setScreen] = useState<AppScreen>(initialScreen);
   const [selectedCompanion, setSelectedCompanion] = useState<CompanionProfile>(companionCatalog[0]);
   const [sessionMode, setSessionMode] = useState<SessionMode>('Teacher');
   const [sessionSeconds, setSessionSeconds] = useState<number>(0);
@@ -95,6 +102,13 @@ function App() {
   }, [performanceLab]);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    params.set('screen', screen);
+    const url = `${window.location.pathname}?${params.toString()}`;
+    window.history.replaceState({}, '', url);
+  }, [screen]);
+
+  useEffect(() => {
     if (screen !== 'session') return;
 
     const intervalId = window.setInterval(() => {
@@ -118,7 +132,9 @@ function App() {
   };
 
   const handleEndSession = () => {
-    setScreen('summary');
+    if (window.confirm('End this session? Your transcript will be cleared.')) {
+      setScreen('summary');
+    }
   };
 
   return (
@@ -141,7 +157,7 @@ function App() {
           theme={theme}
           onThemeChange={setTheme}
         />}
-        {performanceLab && <PerformanceLabPanel performanceLab={performanceLab} />}
+        {import.meta.env.DEV && performanceLab && <PerformanceLabPanel performanceLab={performanceLab} />}
       </div>
     </main>
   );

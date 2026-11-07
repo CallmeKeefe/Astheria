@@ -1,33 +1,40 @@
+/* Astheria — app shell. Open plane: no glass, no blur, no rounded frame. */
+
 .app-container {
   width: 100%;
   min-height: 100vh;
-  padding: clamp(14px, 2vw, 28px);
-  background: linear-gradient(180deg, var(--bg-app) 0%, var(--bg-app-strong) 100%);
+  background: var(--ground);
+  padding: 0;
 }
 
 .app-shell {
   position: relative;
   width: 100%;
-  height: calc(100vh - clamp(28px, 4vw, 56px));
-  min-height: 720px;
-  border-radius: 32px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: var(--bg-shell);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  min-height: 100vh;
+  background: var(--ground);
+}
+
+/* The avatar stage: the hero. Flat ground tone, no gradient ornament. */
+.app-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 62vh;
+  min-height: 380px;
+  background: var(--ground-dark);
+  z-index: 0;
 }
 
 @media (max-width: 860px) {
-  .app-container {
-    padding: 10px;
+  .app-shell::before {
+    height: 52vh;
+    min-height: 280px;
   }
+}
 
-  .app-shell {
-    min-height: 100vh;
-    height: 100vh;
-    max-height: 100vh;
-    border-radius: 22px;
+@media (max-width: 520px) {
+  .app-shell::before {
+    height: 44vh;
+    min-height: 220px;
   }
 }
