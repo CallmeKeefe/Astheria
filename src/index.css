@@ -1,0 +1,118 @@
+:root {
+  --bg-app: #f3f6ff;
+  --bg-app-strong: #ebf0ff;
+  --bg-shell: rgba(255, 255, 255, 0.72);
+  --bg-surface: rgba(255, 255, 255, 0.82);
+  --bg-surface-strong: rgba(255, 255, 255, 0.94);
+  --bg-subtle: rgba(148, 163, 184, 0.08);
+  --bg-solid: #ffffff;
+  --bg-panel: rgba(15, 23, 42, 0.04);
+  --primary: #4f46e5;
+  --primary-700: #4338ca;
+  --primary-200: rgba(79, 70, 229, 0.12);
+  --accent-soft: rgba(79, 70, 229, 0.1);
+  --slate-900: #0f172a;
+  --slate-700: #334155;
+  --slate-500: #64748b;
+  --muted: #475569;
+  --border: rgba(148, 163, 184, 0.26);
+  --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
+  --shadow-subtle: 0 8px 20px rgba(15, 23, 42, 0.06);
+  --glass-blur: 18px;
+  --radius-xl: 28px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --ease-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --motion-press: 100ms;
+  --motion-sm: 150ms;
+  --motion-md: 220ms;
+  --motion-lg: 300ms;
+}
+
+:root[data-theme='dark'] {
+  --bg-app: #0b1020;
+  --bg-app-strong: #121a2e;
+  --bg-shell: rgba(15, 23, 42, 0.72);
+  --bg-surface: rgba(17, 24, 39, 0.8);
+  --bg-surface-strong: rgba(15, 23, 42, 0.92);
+  --bg-subtle: rgba(148, 163, 184, 0.08);
+  --bg-solid: #101827;
+  --bg-panel: rgba(148, 163, 184, 0.08);
+  --primary: #8b8dff;
+  --primary-700: #7c7ef7;
+  --primary-200: rgba(139, 141, 255, 0.16);
+  --accent-soft: rgba(139, 141, 255, 0.14);
+  --slate-900: #e2e8f0;
+  --slate-700: #cbd5e1;
+  --slate-500: #94a3b8;
+  --muted: #b4bfd1;
+  --border: rgba(148, 163, 184, 0.2);
+  --shadow-soft: 0 24px 50px rgba(2, 6, 23, 0.52);
+  --shadow-subtle: 0 10px 22px rgba(2, 6, 23, 0.2);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  color-scheme: light;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, rgba(99, 102, 241, 0.18), transparent 30%), var(--bg-app);
+  color: var(--slate-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--motion-md) var(--ease-soft), color var(--motion-md) var(--ease-soft);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(79, 70, 229, 0.9);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(79, 70, 229, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

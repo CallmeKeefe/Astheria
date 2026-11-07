@@ -1,0 +1,179 @@
+.study-card,
+.progress-card,
+.empty-state-card {
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(15, 23, 42, 0.02);
+  border-radius: 20px;
+  padding: 1rem 1rem 0.9rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.study-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 160px;
+}
+
+.study-card h3,
+.empty-state-card h3 {
+  margin: 0;
+  color: var(--slate-900);
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.study-card p,
+.empty-state-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+  max-width: 28ch;
+}
+
+.study-card__eyebrow {
+  display: inline-flex;
+  align-self: flex-start;
+  border-radius: 999px;
+  padding: 0.28rem 0.55rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(79, 70, 229, 0.08);
+  color: var(--primary-700);
+}
+
+.study-card__action {
+  margin-top: auto;
+  align-self: flex-start;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  background: linear-gradient(180deg, rgba(79, 70, 229, 0.14), rgba(79, 70, 229, 0.06));
+  color: var(--primary-700);
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.study-card__action:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.98);
+}
+
+.study-card__action:active {
+  transform: translateY(0);
+}
+
+.study-card__action.muted {
+  background: rgba(15, 23, 42, 0.04);
+  border-color: rgba(148, 163, 184, 0.28);
+  color: var(--slate-700);
+}
+
+.practice-card {
+  border-color: rgba(99, 102, 241, 0.15);
+  background: linear-gradient(180deg, rgba(79, 70, 229, 0.04), rgba(255, 255, 255, 0.55));
+}
+
+.tone-primary {
+  background: linear-gradient(180deg, rgba(79, 70, 229, 0.06), rgba(255, 255, 255, 0.35));
+}
+
+.tone-success {
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.06), rgba(255, 255, 255, 0.35));
+}
+
+.tone-warning {
+  background: linear-gradient(180deg, rgba(245, 158, 11, 0.08), rgba(255, 255, 255, 0.35));
+}
+
+.progress-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.32rem;
+  min-height: 120px;
+}
+
+.progress-card span {
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.progress-card strong {
+  color: var(--slate-900);
+  font-size: clamp(1.5rem, 2vw, 2.1rem);
+  letter-spacing: -0.04em;
+}
+
+.progress-card small {
+  color: var(--primary-700);
+  font-weight: 600;
+}
+
+.empty-state-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  min-height: 180px;
+}
+
+.empty-state-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 12px;
+  background: rgba(79, 70, 229, 0.08);
+  color: var(--primary-700);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.skeleton-block {
+  position: relative;
+  overflow: hidden;
+  background: rgba(148, 163, 184, 0.12);
+  border-radius: 14px;
+}
+
+.skeleton-block::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+  animation: skeleton-shimmer 1.4s infinite;
+}
+
+.skeleton-card {
+  height: 150px;
+}
+
+.skeleton-line {
+  height: 14px;
+  border-radius: 999px;
+}
+
+.skeleton-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+@keyframes skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .study-card {
+    min-height: 132px;
+  }
+}

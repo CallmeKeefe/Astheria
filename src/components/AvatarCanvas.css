@@ -1,0 +1,149 @@
+.avatar-canvas-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(241,245,249,0.88), rgba(224,231,255,0.74));
+  user-select: none;
+  pointer-events: none;
+}
+
+.avatar-canvas-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  pointer-events: none;
+}
+
+.avatar-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.avatar-card {
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.77);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: 1.4rem 1.5rem;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  text-align: center;
+  max-width: 90%;
+  width: min(320px, 90vw);
+  animation: fadeIn 0.25s ease-out;
+}
+
+.avatar-loading-title {
+  margin: 0 0 0.8rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--slate-900);
+}
+
+.avatar-progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.6rem;
+}
+
+.avatar-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+.avatar-progress-text {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--slate-500);
+  font-variant-numeric: tabular-nums;
+}
+
+.avatar-card.error-card {
+  border-color: rgba(239, 68, 68, 0.22);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.avatar-error-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.08);
+  color: #ef4444;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+
+.avatar-error-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #991b1b;
+}
+
+.avatar-error-message {
+  margin: 0 0 0.9rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.avatar-retry-btn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.72rem 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--primary);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.avatar-retry-btn:hover {
+  filter: brightness(0.98);
+  transform: translateY(-1px);
+}
+
+.avatar-retry-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .avatar-card {
+    width: min(280px, 86vw);
+    padding: 1.1rem 1.2rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,32 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Browser validation harness reports (scripts/browser-check.mjs)
+browser-check-*.json
+
+# Performance isolation reports (scripts/probe-performance-isolation.js)
+probe-performance-isolation.json
+probe-smoke.json
+probe-*.json
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

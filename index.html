@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="apple-touch-icon" href="/pwa-192x192.png" />
+    <title>Astheria AI Companion</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (function () {
+        const key = 'asteria-theme';
+        const saved = localStorage.getItem(key);
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved === 'light' || saved === 'dark' ? saved : (systemDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
